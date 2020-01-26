@@ -19,9 +19,11 @@ router.post('/login', async (req, res, next) => {
   try{
     const { username, password } = req.body
     const user = await authModel.findBy(username).first()
-    const passwordValid = await bcrypt.compare(user.password, password)
+    const passwordValid = await bcrypt.compare(password, user.password)
+
     console.log(user.password)
     console.log(password)
+    console.log(passwordValid == password)
     console.log(passwordValid)
 
     if(user && passwordValid){

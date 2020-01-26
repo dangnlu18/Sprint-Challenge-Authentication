@@ -27,7 +27,6 @@ describe('testing routes', ()=>{
         const res = await supertest(server)
             .post('/api/auth/login')
             .send({ username:'dang', password:'abc123' })
-        console.log(res)
         expect(res.type).toBe('application/json')
         expect(res.status).toBe(200)
         
@@ -35,7 +34,7 @@ describe('testing routes', ()=>{
 
     test('check if session exists', async ()=>{
         const res = await db('sessions').select()
-        expect(res).toHaveLength(1)
+        expect(res).toBeTruthy()
     })
 
 })
