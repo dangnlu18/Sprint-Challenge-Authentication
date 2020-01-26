@@ -29,6 +29,7 @@ describe('testing routes', ()=>{
             .send({ username:'dang', password:'abc123' })
         expect(res.type).toBe('application/json')
         expect(res.status).toBe(200)
+        expect(res.body).toBeDefined()
         
     })
 
