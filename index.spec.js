@@ -38,4 +38,23 @@ describe('testing routes', ()=>{
         expect(res).toBeTruthy()
     })
 
+
+    test('testing jokes router', async ()=>{
+        const userlogin = await supertest(server).post('/api/auth/login').send({ username:'dang', password:'abc123' })
+        const res = await supertest(server)
+            .get('/api/jokes')
+            .set('Cookie', userlogin.header['set-cookie'][0])
+        expect(res.status).toBe(200)
+        expect(res.body).toBeTruthy()
+    })
+
+    test('testing if cookie is being set for jokes router', async ()=>{
+        const userlogin = await supertest(server).post('/api/auth/login').send({ username:'dang', password:'abc123' })
+        const res = await supertest(server)
+            .get('/api/jokes')
+            .set('Cookie', userlogin.header['set-cookie'][0])
+        expect(res.status).toBe(200)
+        expect(res.req['_header']).toContain('Cookie')
+    })
+
 })

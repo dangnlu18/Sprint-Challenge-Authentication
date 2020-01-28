@@ -44,7 +44,7 @@ Sessions stores auth information and keeps user logged in across endpoints witho
 
 - [ ] What does bcrypt do to help us store passwords in a secure manner.
 
-bcrypt helps hash and salt the password. once hashed, it cannot be reversed.
+bcrypt helps hash and salt the password.
 
 - [ ] What does bcrypt do to slow down attackers?
 
