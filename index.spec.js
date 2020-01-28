@@ -55,6 +55,7 @@ describe('testing routes', ()=>{
             .set('Cookie', userlogin.header['set-cookie'][0])
         expect(res.status).toBe(200)
         expect(res.req['_header']).toContain('Cookie')
+        console.log(res.req['_header'])
     })
 
 })
